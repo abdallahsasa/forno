@@ -10,10 +10,13 @@
                         <div class="sb-main-title">
                             <h1 class="sb-h2">More & More Juices</h1>
                             <ul class="sb-breadcrumbs">
-                                <li><a href="/">Home</a></li>
+                                <li><a class="text-uppercase" href="/">Home</a></li>
 
                                 <li>
-                                    <div>{{$product->name}}</div>
+                                    <div class="text-uppercase"> {{$product->category->name}} </div>
+                                </li>
+                                <li>
+                                    <div class="text-uppercase"> {{$product->name}} </div>
                                 </li>
                             </ul>
                         </div>
