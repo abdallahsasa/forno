@@ -109,7 +109,7 @@
                                     <ul class="sb-list">
                                         @foreach($product->prices as $prod)
                                             <li>
-                                                <b>{{$prod->size}}</b><span>{{$prod->price}} {{$product->currency}}</span>
+                                                <b class="text-capitalize">{{$prod->size}}</b><span>{{$prod->price}} {{$product->currency}}</span>
                                             </li>
                                         @endforeach
                                     </ul>
