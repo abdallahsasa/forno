@@ -58,6 +58,7 @@
                                 @endforeach
                                     <sub>{{$product->currency}}</sub>
                             </div>
+
                         </div>
                         <ul class="sb-stars sb-mb-25">
                             <li><i class="fas fa-star"></i></li>
@@ -162,6 +163,11 @@
                                         @endforeach
                                     </div>
                                 </div>
+                                <a style="width: 100%;justify-content: center;" href="/product/{{$rproduct->id}}"
+                                   class="sb-btn sb-ppc">
+                      <span class="sb-icon">
+                        <img src="{{asset('img/ui/icons/search.svg')}}" alt="icon">
+                      </span><span>View sizes</span></a>
                             </div>
                         </div>
                     @endforeach
