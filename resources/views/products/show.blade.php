@@ -60,6 +60,7 @@
                             </div>
 
                         </div>
+                        <div class="sb-text sb-mb-30">{{$product->category->name}}</div>
                         <ul class="sb-stars sb-mb-25">
                             <li><i class="fas fa-star"></i></li>
                             <li><i class="fas fa-star"></i></li>
@@ -67,7 +68,6 @@
                             <li><i class="fas fa-star"></i></li>
                             <li><i class="fas fa-star"></i></li>
                         </ul>
-                        <div class="sb-text sb-mb-30">{{$product->category->name}}</div>
                         <div class="sb-text sb-mb-30">{!!$product->description!!}</div>
                         <div style="display:none;" class="row">
                             <div class="col-lg-4">
