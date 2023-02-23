@@ -150,7 +150,17 @@
                                     <h4 class="sb-card-title"><a href="{{route('home.product.show',$rproduct->id)}}">{{$rproduct->name}}</a>
                                     </h4>
                                     <div class="sb-price">
-                                        <sub>{{$rproduct->currency}}</sub> {{$rproduct->prices[0]['price']}}</div>
+                                        <sub>{{$rproduct->currency}}</sub>
+                                        @foreach($rproduct->prices as $rprice)
+                                            @if($rprice->size=='Regular')
+                                                {{$rprice->price}}
+                                                @break
+                                            @else
+                                                {{$rprice->price}}
+                                                @break
+                                            @endif
+                                        @endforeach
+                                    </div>
                                 </div>
                             </div>
                         </div>
