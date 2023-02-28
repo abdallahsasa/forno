@@ -41,4 +41,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function activities()
+    {
+        return $this->hasMany('App\models\UserActivity');
+    }
+
+    public function logActivity($activity_name)
+    {
+        $activity = UserActivity::create([
+            'user_id' => $this->getKey(),
+            'activity_name' => $activity_name
+        ]);
+
+        return $this;
+    }
 }

@@ -231,16 +231,16 @@ $(function() {
   contact form
 
   ***************************/
-  $("#form").submit(function() {
-    $.ajax({
-      type: "POST",
-      url: "mail.php",
-      data: $(this).serialize()
-    }).done(function() {
-      $('.sb-success-result').addClass('sb-active');
-    });
-    return false;
-  });
+  // $("#form").submit(function() {
+  //   $.ajax({
+  //     type: "POST",
+  //     url: "{{}}",
+  //     data: $(this).serialize()
+  //   }).done(function() {
+  //     $('.sb-success-result').addClass('sb-active');
+  //   });
+  //   return false;
+  // });
   /***************************
 
   sliders
@@ -440,7 +440,6 @@ $(function() {
     $('.sb-filter a').on('click', function() {
       $('.sb-filter .sb-active').removeClass('sb-active');
       $(this).addClass('sb-active');
-
       var selector = $(this).data('filter');
       $('.sb-masonry-grid').isotope({
         filter: selector
@@ -549,16 +548,16 @@ $(function() {
     contact form
 
     ***************************/
-    $("#form").submit(function() {
-      $.ajax({
-        type: "POST",
-        url: "mail.php",
-        data: $(this).serialize()
-      }).done(function() {
-        $('.sb-success-result').addClass('sb-active');
-      });
-      return false;
-    });
+    // $("#form").submit(function() {
+    //   $.ajax({
+    //     type: "POST",
+    //     url: "mail.php",
+    //     data: $(this).serialize()
+    //   }).done(function() {
+    //     $('.sb-success-result').addClass('sb-active');
+    //   });
+    //   return false;
+    // });
     /***************************
 
     sliders

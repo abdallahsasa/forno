@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-@extends('dashboard.layouts.head')
+@include('dashboard.layouts.head')
 <body>
 
 <div class="wrapper">
@@ -8,17 +8,14 @@
         <img src="{{asset('dashboard/images/pre-loader/loader-01.svg')}}" alt="">
     </div>
 
-    @extends('dashboard.layouts.header')
+    @include('dashboard.layouts.header')
 
     <div class="container-fluid">
-
         @include('dashboard.layouts.left-sidebar')
-
         <div class="content-wrapper">
 
             @yield('content')
             @include('dashboard.layouts.footer')
-
         </div>
 
     </div>

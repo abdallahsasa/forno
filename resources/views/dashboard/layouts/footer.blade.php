@@ -3,7 +3,7 @@
         <div class="col-md-6">
             <div class="text-center text-md-start">
                 <p class="mb-0"> &copy; Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span>.
-                    <a href="#"> Webmin </a> All Rights Reserved.
+                    Developed By <a href="{{url('https://threedigitsoftware.com/')}}" target="_blank"> Three Digit Software </a>
                 </p>
             </div>
         </div>

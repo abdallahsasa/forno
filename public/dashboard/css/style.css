@@ -19159,7 +19159,7 @@ button.toast-close-button {
 
 /*# sourceMappingURL=bootstrap-datepicker.css.map */
 /*
-    Common 
+    Common
 */
 .wizard,
 .tabcontrol {
@@ -24570,7 +24570,7 @@ ul.list-unstyled li {
   .side-menu-fixed .side-menu-bg {
     height: 100%;
     width: 100%;
-    background: #282a39; 
+    background: #282a39;
     overflow: hidden;
   }
   .side-menu-fixed .side-menu {
@@ -26874,7 +26874,7 @@ div.style-customizer .content-chooser input[type=radio]:checked ~ label {
   .card.card-statistics .pos-bot {
     position: relative; }
   .login.height-100vh {
-    height: 100%; 
+    height: 100%;
     padding: 15px 0px;;
   }
   .admin-timeline {
@@ -27072,4 +27072,13 @@ div.style-customizer .content-chooser input[type=radio]:checked ~ label {
       max-width: 1140px;
   }
 
+}
+.tr-image{
+    width:30%;
+}
+.image-20{
+    width:20%;
+}
+tr{
+    text-align: center;
 }

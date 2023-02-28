@@ -1,7 +1,8 @@
+
 <footer>
     <div class="container">
         <div class="sb-footer-frame">
-            <div class="sb-copy">Copyright more&more &copy; 2023. All Rights Reserved.</div>
+            <div class="sb-copy">Copyright More&More &copy; 2023. All Rights Reserved.</div>
             <ul class="sb-social">
                 <li><a href="#."><i class="fab fa-facebook"></i></a></li>
                 <li><a href="https://www.instagram.com/moreandmore_kw/" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -33,5 +34,34 @@
     <script src="{{asset('js/plugins/fancybox.min.js')}}"></script>
     <!-- starbelly js -->
     <script src="{{asset('js/main.js')}}"></script>
+    <script>
+        var btn = $('#backbutton');
 
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 30) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
+        });
+
+        btn.on('click', function(e) {
+            e.preventDefault();
+            $('html, body').animate({scrollTop:0}, '300');
+        });
+        $(".scroll").click(function() {
+            $('html,body').animate({
+                    scrollTop: $("#main").offset().top-200},
+                'slow');
+        });
+
+        @if(isset($categoryfilter) && $categoryfilter != "ALL")
+
+        $(document).ready(function() {
+        const link = document.getElementById("{{$categoryfilter}}");
+        //console.log(link);
+        link.click();
+        });
+        @endif
+    </script>
 </footer>

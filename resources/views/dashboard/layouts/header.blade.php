@@ -1,8 +1,8 @@
 <nav class="admin-header navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <!-- logo -->
     <div class="text-start navbar-brand-wrapper">
-        <a class="navbar-brand brand-logo" href="index.html"><img src="{{asset('dashboard/images/logo-dark.png')}}" alt="" ></a>
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{asset('dashboard/images/logo-icon-dark.png')}}" alt=""></a>
+        <a class="navbar-brand brand-logo" href="/backoffice/dashboard"><img src="{{asset('/img/ui/logo.png')}}" alt="" >Admin Panel</a>
+        <a class="navbar-brand brand-logo-mini" href="/backoffice/dashboard"><img src="{{asset('/img/ui/logo.png')}}" alt="">Admin Panel</a>
     </div>
     <!-- Top bar left -->
     <ul class="nav navbar-nav me-auto">
@@ -24,7 +24,7 @@
         <li class="nav-item fullscreen">
             <a id="btnFullscreen" href="#" class="nav-link" ><i class="ti-fullscreen"></i></a>
         </li>
-        <li class="nav-item dropdown ">
+        <li style="display: none;" class="nav-item dropdown ">
             <a class="nav-link top-nav" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                 <i class="ti-bell"></i>
                 <span class="badge bg-danger notification-status"> </span>
@@ -42,7 +42,7 @@
                 <a href="#" class="dropdown-item">Order confirmation<small class="float-end text-muted time">2 days</small> </a>
             </div>
         </li>
-        <li class="nav-item dropdown ">
+        <li style="display: none;"  class="nav-item dropdown ">
             <a class="nav-link top-nav" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true"> <i class=" ti-view-grid"></i> </a>
             <div class="dropdown-menu dropdown-menu-right dropdown-big">
                 <div class="dropdown-header">

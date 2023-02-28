@@ -1,752 +1,108 @@
 @extends('layouts.app')
 @section('content')
-    <!-- app wrapper -->
-    <div class="sb-app">
-        <!-- dynamic content -->
-        <div id="sb-dynamic-content" class="sb-transition-fade">
-
-            <section class="sb-menu-section sb-p-90-60">
-                <div class="sb-bg-1">
+    <section class="sb-p-60-30" style="padding-top: 150px!important;">
+        <div class="container">
+            <div class="sb-group-title sb-mb-30">
+                <div class="sb-left sb-mb-30">
+                    <h2 class="sb-mb-30">What do you <span>like today?</span></h2>
+                    <p class="sb-text">Discover Our Categories</p>
+                </div>
+                <div class="sb-right sb-mb-30">
+                    <!-- button -->
+                    <a href="/menu" class="sb-btn sb-m-0">
+                <span class="sb-icon">
+                  <img src="img/ui/icons/menu.svg" alt="icon">
+                </span>
+                        <span>View Full Menu</span>
+                    </a>
+                    <!-- button end -->
+                </div>
+            </div>
+            <div class="row">
+                @if(isset($categories))
+                    @foreach($categories as $category)
+                        <div class="col-lg-4">
+                            <a href="/menu/{{str_replace(' ', '', $category->name)}}" class="sb-categorie-card sb-categorie-card-2 sb-mb-30">
+                                <div class="sb-card-body">
+                                    <div class="sb-category-icon">
+                                        <img src="{{$category->image_url}}" alt="icon">
+                                    </div>
+                                    <div class="sb-card-descr">
+                                        <h3  style="text-align: right;" class="sb-mb-10">{{$category->name}}</h3>
+                                        <p style="display:none;" class="sb-text">{{$category->description}}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
+            <section class="sb-short-menu sb-p-0-90">
+                <div class="sb-bg-2">
                     <div></div>
                 </div>
                 <div class="container">
-                    <!-- filter -->
-                    <div class="sb-filter mb-30">
-                        <a href="#." data-filter="*" class="sb-filter-link sb-active">All dishes</a>
-                        <a href="#." data-filter=".starters" class="sb-filter-link">Starters</a>
-                        <a href="#." data-filter=".main-dishes" class="sb-filter-link">Main dishes</a>
-                        <a href="#." data-filter=".drinks" class="sb-filter-link">Drinks</a>
-                        <a href="#." data-filter=".desserts" class="sb-filter-link">Dessert</a>
-                    </div>
-                    <!-- filter end -->
-                    <div class="sb-masonry-grid">
-                        <div class="sb-grid-sizer"></div>
-                        <div class="sb-grid-item sb-item-25 main-dishes">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/1.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/1.jpg" alt="product">
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Chevrefrit au miel</h4>
-                                    <div class="sb-price"><sub>$</sub> 14</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>(4 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
+                    <div class="sb-group-title sb-mb-30">
+                        <div class="sb-left sb-mb-30">
+                            <h2 class="sb-mb-30">Most <span>popular</span></h2>
                         </div>
-                        <div class="sb-grid-item sb-item-25 main-dishes">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/2.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/2.jpg" alt="product">
-                                    <div class="sb-badge sb-vegan"><i class="fas fa-leaf"></i> Vegan</div>
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Saumon Gravlax</h4>
-                                    <div class="sb-price"><sub>$</sub> 9</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars sb-unrated">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>Unrated</span></li>
-                                    </ul>
-                                </div>
+                        <div class="sb-right sb-mb-30">
+                            <!-- slider navigation -->
+                            <div class="sb-slider-nav">
+                                <div class="sb-prev-btn sb-short-menu-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"><i class="fas fa-arrow-left"></i></div>
+                                <div class="sb-next-btn sb-short-menu-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"><i class="fas fa-arrow-right"></i></div>
+                            </div>
+                            <!-- slider navigation end -->
+                            <!-- button -->
+                            <a href="/menu" class="sb-btn">
+                <span class="sb-icon">
+                  <img src="img/ui/icons/menu.svg" alt="icon">
+                </span>
+                                <span>Full menu</span>
                             </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 main-dishes">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/3.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/3.jpg" alt="product">
-                                    <div class="sb-badge sb-hot"><i class="fas fa-pepper-hot"></i> Hot</div>
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Croustillant de poisson</h4>
-                                    <div class="sb-price"><sub>$</sub> 4</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li class="sb-empty"><i class="fas fa-star"></i></li>
-                                        <li><span>(1 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 drinks">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/4.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/4.jpg" alt="product">
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Stracciatella</h4>
-                                    <div class="sb-price"><sub>$</sub> 11</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>(2 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 desserts">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/5.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/5.jpg" alt="product">
-                                    <div class="sb-badge sb-vegan"><i class="fas fa-leaf"></i> Vegan</div>
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Carpaccio de daurade</h4>
-                                    <div class="sb-price"><sub>$</sub> 6</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>(6 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 drinks">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/6.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/6.jpg" alt="product">
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Chevrefrit au miel</h4>
-                                    <div class="sb-price"><sub>$</sub> 14</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>(14 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 main-dishes">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/7.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/7.jpg" alt="product">
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Stracciatella</h4>
-                                    <div class="sb-price"><sub>$</sub> 11</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li class="sb-empty"><i class="fas fa-star"></i></li>
-                                        <li class="sb-empty"><i class="fas fa-star"></i></li>
-                                        <li><span>(1 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 desserts">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/8.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/8.jpg" alt="product">
-                                    <div class="sb-badge sb-vegan"><i class="fas fa-leaf"></i> Vegan</div>
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Carpaccio de daurade</h4>
-                                    <div class="sb-price"><sub>$</sub> 6</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars sb-unrated">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>Unrated</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 starters">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/9.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/9.jpg" alt="product">
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Chevrefrit au miel</h4>
-                                    <div class="sb-price"><sub>$</sub> 14</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>(1 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 drinks">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/10.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/10.jpg" alt="product">
-                                    <div class="sb-badge sb-vegan"><i class="fas fa-leaf"></i> Vegan</div>
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Carpaccio de daurade</h4>
-                                    <div class="sb-price"><sub>$</sub> 6</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>(8 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 starters">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/11.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/11.jpg" alt="product">
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Carpaccio de daurade</h4>
-                                    <div class="sb-price"><sub>$</sub> 7</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li class="sb-empty"><i class="fas fa-star"></i></li>
-                                        <li><span>(9 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 starters">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/12.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/12.jpg" alt="product">
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Carpaccio de daurade</h4>
-                                    <div class="sb-price"><sub>$</sub> 12</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>(5 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 starters">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/1.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/1.jpg" alt="product">
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Chevrefrit au miel</h4>
-                                    <div class="sb-price"><sub>$</sub> 14</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>(7 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 main-dishes">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/2.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/2.jpg" alt="product">
-                                    <div class="sb-badge sb-vegan"><i class="fas fa-leaf"></i> Vegan</div>
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Saumon Gravlax</h4>
-                                    <div class="sb-price"><sub>$</sub> 9</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>(4 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 starters">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/3.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/3.jpg" alt="product">
-                                    <div class="sb-badge sb-hot"><i class="fas fa-pepper-hot"></i> Hot</div>
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Croustillant de poisson</h4>
-                                    <div class="sb-price"><sub>$</sub> 4</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li class="sb-empty"><i class="fas fa-star"></i></li>
-                                        <li><span>(9 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 main-dishes">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/4.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/4.jpg" alt="product">
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Stracciatella</h4>
-                                    <div class="sb-price"><sub>$</sub> 11</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>(2 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 main-dishes">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/5.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/5.jpg" alt="product">
-                                    <div class="sb-badge sb-vegan"><i class="fas fa-leaf"></i> Vegan</div>
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Carpaccio de daurade</h4>
-                                    <div class="sb-price"><sub>$</sub> 6</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>(11 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 main-dishes">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/6.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/6.jpg" alt="product">
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Chevrefrit au miel</h4>
-                                    <div class="sb-price"><sub>$</sub> 14</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>(4 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 main-dishes">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/7.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/7.jpg" alt="product">
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Stracciatella</h4>
-                                    <div class="sb-price"><sub>$</sub> 11</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li class="sb-empty"><i class="fas fa-star"></i></li>
-                                        <li class="sb-empty"><i class="fas fa-star"></i></li>
-                                        <li><span>(1 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 drinks">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/15.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/15.jpg" alt="product">
-                                    <div class="sb-badge sb-vegan"><i class="fas fa-leaf"></i> Vegan</div>
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Carpaccio de daurade</h4>
-                                    <div class="sb-price"><sub>$</sub> 6</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>(12 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 starters">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/14.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/14.jpg" alt="product">
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Chevrefrit au miel</h4>
-                                    <div class="sb-price"><sub>$</sub> 14</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>(9 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 main-dishes">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/10.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/10.jpg" alt="product">
-                                    <div class="sb-badge sb-vegan"><i class="fas fa-leaf"></i> Vegan</div>
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Carpaccio de daurade</h4>
-                                    <div class="sb-price"><sub>$</sub> 6</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>(3 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 desserts">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/11.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/11.jpg" alt="product">
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Carpaccio de daurade</h4>
-                                    <div class="sb-price"><sub>$</sub> 7</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li class="sb-empty"><i class="fas fa-star"></i></li>
-                                        <li><span>(3 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 desserts">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/12.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/12.jpg" alt="product">
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Carpaccio de daurade</h4>
-                                    <div class="sb-price"><sub>$</sub> 12</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars sb-unrated">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>Unrated</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 desserts">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/1.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/1.jpg" alt="product">
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Chevrefrit au miel</h4>
-                                    <div class="sb-price"><sub>$</sub> 14</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>(2 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 starters">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/2.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/2.jpg" alt="product">
-                                    <div class="sb-badge sb-vegan"><i class="fas fa-leaf"></i> Vegan</div>
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Saumon Gravlax</h4>
-                                    <div class="sb-price"><sub>$</sub> 9</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>(1 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 main-dishes">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/3.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/3.jpg" alt="product">
-                                    <div class="sb-badge sb-hot"><i class="fas fa-pepper-hot"></i> Hot</div>
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Croustillant de poisson</h4>
-                                    <div class="sb-price"><sub>$</sub> 4</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars sb-unrated">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>Unrated</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 drinks">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/15.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/15.jpg" alt="product">
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Stracciatella</h4>
-                                    <div class="sb-price"><sub>$</sub> 11</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>(1 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 desserts">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/5.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/5.jpg" alt="product">
-                                    <div class="sb-badge sb-vegan"><i class="fas fa-leaf"></i> Vegan</div>
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Carpaccio de daurade</h4>
-                                    <div class="sb-price"><sub>$</sub> 6</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>(1 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 drinks">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/14.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/14.jpg" alt="product">
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Chevrefrit au miel</h4>
-                                    <div class="sb-price"><sub>$</sub> 14</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>(2 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 starters">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/7.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/7.jpg" alt="product">
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Stracciatella</h4>
-                                    <div class="sb-price"><sub>$</sub> 11</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li class="sb-empty"><i class="fas fa-star"></i></li>
-                                        <li class="sb-empty"><i class="fas fa-star"></i></li>
-                                        <li><span>(4 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="sb-grid-item sb-item-25 desserts">
-                            <a data-fancybox="menu" data-no-swup href="img/menu/8.jpg" class="sb-menu-item sb-mb-30">
-                                <div class="sb-cover-frame">
-                                    <img src="img/menu/8.jpg" alt="product">
-                                    <div class="sb-badge sb-vegan"><i class="fas fa-leaf"></i> Vegan</div>
-                                </div>
-                                <div class="sb-card-tp">
-                                    <h4 class="sb-card-title">Carpaccio de daurade</h4>
-                                    <div class="sb-price"><sub>$</sub> 6</div>
-                                </div>
-                                <div class="sb-description">
-                                    <p class="sb-text sb-mb-15"><span>tomatoes</span>, <span>nori</span>, <span>feta cheese</span>, <span>mushrooms</span>, <span>rice noodles</span>, <span>corn</span>, <span>shrimp</span>.</p>
-                                    <ul class="sb-stars">
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><i class="fas fa-star"></i></li>
-                                        <li><span>(1 ratings)</span></li>
-                                    </ul>
-                                </div>
-                            </a>
+                            <!-- button end -->
                         </div>
                     </div>
+                    <div class="swiper-container sb-short-menu-slider-4i swiper-container-horizontal">
+                        <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                            @if(isset($products))
+                                @foreach($products as $product)
+                            <div class="swiper-slide swiper-slide-active" style="width: 330px; margin-right: 30px;">
+                                <a  href="/product/{{$product->id}}" class="sb-menu-item">
+                                    <div class="sb-cover-frame">
+                                        <img src="{{$product->image_url}}" alt="product">
+                                    </div>
+                                    <div class="sb-card-tp">
+                                        <h4 class="sb-card-title">{{$product->name}}</h4>
+                                        <div class="sb-price">
+                                            @foreach($product->prices as $price)
+                                                @if($price->size=='Regular')
+                                                    {{number_format($price->price,2)}}
+                                                    @break
+                                                @else
+                                                    {{number_format($price->price,2)}}                                                    @break
+                                                @endif
+                                            @endforeach
+                                            <sub>{{$product->currency}}</sub>
+                                        </div>
+                                        <div>
+
+                                        </div>
+                                    </div>
+                                    <div class="sb-description">
+
+                                    </div>
+                                </a>
+
+                            </div>
+                                @endforeach
+                            @endif
+                        </div>
+                        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
                 </div>
             </section>
-            <!-- menu end -->
 
         </div>
-        <!-- dynamic content end -->
-
-    </div>
-    <!-- app wrapper end -->
+    </section>
+    <!-- menu end -->
 @endsection
