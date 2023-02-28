@@ -8,13 +8,43 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    protected $table = 'products';
-    protected $fillable = array('name','description','price','category_id','sku');
+    protected $table = 'Products';
+    protected $fillable = array('name','description','price','active','image');
+
     public function category()
     {
         return $this->belongsTo('App\Models\Category');
     }
-
+    public function productTransaltion()
+    {
+        return $this->hasMany('App\Models\ProductTransaltion');
+    }
+    public function getNameAttribute($attribute)
+    {
+        if(request()->has('lang') && request('lang') != "en")
+        {
+            return $this->get_attribute_trans('name')->value ?? null;
+        }
+        return $attribute;
+    }
+    public function get_name_trans($attribute,$lang = "ar")
+    {
+        return  $this->productTransaltion()
+            ->where('lang','=',$lang)->get('name');
+    }
+    public function getDescriptionAttribute($attribute)
+    {
+        if(request()->has('lang') && request('lang') != "en")
+        {
+            return $this->get_attribute_trans('description')->value ?? null;
+        }
+        return $attribute;
+    }
+    public function get_description_trans($attribute,$lang = "ar")
+    {
+        return  $this->productTransaltion()
+            ->where('lang','=',$lang)->get('description');
+    }
     public function media()
     {
         return $this->hasMany('App\Models\ProductMedia');
@@ -67,4 +97,5 @@ class Product extends Model
     {
         return $this->media()->where(['media_type' => 'video'])->get();
     }
+
 }
