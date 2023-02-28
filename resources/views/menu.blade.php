@@ -41,7 +41,7 @@
                                         @endforeach
                                         <sub>{{$product->currency}}</sub></div>
                                 </div>
-
+                            </a>
                         </div>
                     @endforeach
                 @endif
