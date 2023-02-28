@@ -85,15 +85,19 @@
                                             @endforeach
                                             <sub>{{$product->currency}}</sub>
                                         </div>
+                                        <div>
+
+                                        </div>
                                     </div>
                                     <div class="sb-description">
+
                                     </div>
                                 </a>
-                                <a style="width: 100%;justify-content: center;" href="/product/{{$product->id}}"
+                                <a style="width: 100%;justify-content: center;margin-top: -8%;" href="/product/{{$product->id}}"
                                    class="sb-btn sb-ppc">
                       <span class="sb-icon">
                         <img src="img/ui/icons/search.svg" alt="icon">
-                      </span><span>View sizes</span></a>
+                      </span><span>View Details</span></a>
                                 </a>
                             </div>
                                 @endforeach

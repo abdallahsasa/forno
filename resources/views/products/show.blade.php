@@ -167,7 +167,7 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                <a style="width: 100%;justify-content: center;" href="/product/{{$rproduct->id}}"
+                                <a style="width: 100%;justify-content: center;margin-top: -8%;" href="/product/{{$rproduct->id}}"
                                    class="sb-btn sb-ppc">
                       <span class="sb-icon">
                         <img src="{{asset('img/ui/icons/search.svg')}}" alt="icon">
