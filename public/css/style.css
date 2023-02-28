@@ -5201,3 +5201,14 @@ illustration 9
 .hidden{
     display: none!important;
 }
+.view-btn{
+    width: 90%;
+    justify-content: center;
+    margin-top: -43%;
+    z-index: 999999;
+    opacity: 0.8;
+    position: absolute;
+}
+.view-btn:hover{
+    opacity: 1;
+}

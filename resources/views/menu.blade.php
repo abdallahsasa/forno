@@ -41,8 +41,8 @@
                                         @endforeach
                                         <sub>{{$product->currency}}</sub></div>
                                 </div>
-                                <a style="width: 100%;justify-content: center;margin-top: -8%;" href="/product/{{$product->id}}"
-                                   class="sb-btn sb-ppc">
+                                <a  href="/product/{{$product->id}}"
+                                   class="sb-btn sb-ppc view-btn">
                       <span class="sb-icon">
                         <img src="{{asset('img/ui/icons/search.svg')}}" alt="icon">
                       </span><span>View Details</span></a>
