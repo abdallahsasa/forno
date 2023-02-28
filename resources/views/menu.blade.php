@@ -45,7 +45,7 @@
                                    class="sb-btn sb-ppc">
                       <span class="sb-icon">
                         <img src="{{asset('img/ui/icons/search.svg')}}" alt="icon">
-                      </span><span>View sizes</span></a>
+                      </span><span>View Details</span></a>
                             </a>
                         </div>
                     @endforeach
