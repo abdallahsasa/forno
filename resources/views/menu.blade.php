@@ -32,10 +32,10 @@
                                     <div class="sb-price">
                                         @foreach($product->prices as $price)
                                             @if($price->size=='Regular')
-                                                {{$price->price}}
+                                                {{number_format($price->price,2)}}
                                                 @break
                                             @else
-                                                {{$price->price}}
+                                                {{number_format($price->price,2)}}
                                                 @break
                                             @endif
                                         @endforeach

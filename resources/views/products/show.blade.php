@@ -52,11 +52,11 @@
                             <div class="sb-price">
                                 @foreach($product->prices as $price)
                                     @if($price->size=='Regular')
-                                    {{$price->price}}
+                                        {{number_format($price->price,2)}}
                                         @break
                                     @else
-                                        {{$price->price}}
-                                    @break
+                                        {{number_format($price->price,2)}}
+                                        @break
                                     @endif
                                 @endforeach
                                     <sub>{{$product->currency}}</sub>
@@ -109,7 +109,7 @@
                                     <ul class="sb-list">
                                         @foreach($product->prices as $prod)
                                             <li>
-                                                <b class="text-capitalize">{{$prod->size}}</b><span>{{$prod->price}} {{$product->currency}}</span>
+                                                <b class="text-capitalize">{{$prod->size}}</b><span>{{number_format($prod->price,2)}}   {{$product->currency}}</span>
                                             </li>
                                         @endforeach
                                     </ul>
@@ -158,10 +158,10 @@
                                         <sub>{{$rproduct->currency}}</sub>
                                         @foreach($rproduct->prices as $rprice)
                                             @if($rprice->size=='Regular')
-                                                {{$rprice->price}}
+                                                {{number_format($price->price,2)}}
                                                 @break
                                             @else
-                                                {{$rprice->price}}
+                                                {{number_format($price->price,2)}}
                                                 @break
                                             @endif
                                         @endforeach
