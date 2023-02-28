@@ -22,7 +22,7 @@
                 @if(isset($products))
                     @foreach($products as $product)
                         <div class="sb-grid-item sb-item-25 {{str_replace(' ', '', $product->category->name)}}">
-                            <a data-fancybox="menu" data-no-swup href="{{$product->image_url}}"
+                            <a  href="/product/{{$product->id}}"
                                class="sb-menu-item sb-mb-2">
                                 <div class="sb-cover-frame">
                                     <img src="{{$product->image_url}}" alt="{{$product->image_name}}">
@@ -41,12 +41,7 @@
                                         @endforeach
                                         <sub>{{$product->currency}}</sub></div>
                                 </div>
-                                <a  href="/product/{{$product->id}}"
-                                   class="sb-btn sb-ppc view-btn">
-                      <span class="sb-icon">
-                        <img src="{{asset('img/ui/icons/search.svg')}}" alt="icon">
-                      </span><span>View Details</span></a>
-                            </a>
+
                         </div>
                     @endforeach
                 @endif

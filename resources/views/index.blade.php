@@ -68,7 +68,7 @@
                             @if(isset($products))
                                 @foreach($products as $product)
                             <div class="swiper-slide swiper-slide-active" style="width: 330px; margin-right: 30px;">
-                                <a data-fancybox="menu" data-no-swup="" href="{{$product->image_url}}" class="sb-menu-item">
+                                <a  href="/product/{{$product->id}}" class="sb-menu-item">
                                     <div class="sb-cover-frame">
                                         <img src="{{$product->image_url}}" alt="product">
                                     </div>
@@ -93,12 +93,7 @@
 
                                     </div>
                                 </a>
-                                <a style="width: 100%;justify-content: center;margin-top: -8%;" href="/product/{{$product->id}}"
-                                   class="sb-btn sb-ppc">
-                      <span class="sb-icon">
-                        <img src="img/ui/icons/search.svg" alt="icon">
-                      </span><span>View Details</span></a>
-                                </a>
+
                             </div>
                                 @endforeach
                             @endif
