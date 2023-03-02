@@ -54,7 +54,10 @@
                     scrollTop: $("#main").offset().top-200},
                 'slow');
         });
-
+        var url = "{{ route('changeLang') }}";
+        $(".changeLang").change(function(){
+            window.location.href = url + "?lang="+ $(this).val();
+        });
         @if(isset($categoryfilter) && $categoryfilter != "ALL")
 
         $(document).ready(function() {
@@ -64,4 +67,5 @@
         });
         @endif
     </script>
+
 </footer>

@@ -20,6 +20,18 @@
                         <li>
                             <a href="{{url('/contact')}}">Contact</a>
                         </li>
+                        <li class="sb-has-children">
+                            <a href> Language </a>
+                            <ul>
+                                <li value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>
+                                    <a href="{{ route('changeLang').'?lang=en' }}"> English </a>
+                                </li>
+                                <li value="ar" {{ session()->get('locale') == 'ar' ? 'selected' : '' }}>
+                                    <a href="{{ route('changeLang').'?lang=ar' }}"> Arabic </a>
+                                </li>
+                            </ul>
+                        </li>
+
                     </ul>
                 </nav>
                 <div class="sb-buttons-frame">

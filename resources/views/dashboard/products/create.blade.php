@@ -66,7 +66,7 @@
                         <div class="mb-3">
                             <label class="form-label" for="exampleFormControlTextarea1">Product Description</label>
                                     <textarea id="summernote" name="description" class="form-control" id="exampleFormControlTextarea1"
-                                              rows="3">{{old('description')}}</textarea>
+                                              rows="2">{{old('description')}}</textarea>
                                     @if($errors->has('description'))
                                         <div class="alert alert-danger" role="alert">
                                             {{ $errors->first('description') }}
@@ -108,6 +108,44 @@
                                     <input  class="button" data-repeater-create="" type="button" value="Add Product Price">
                                 </div>
                             </div>
+
+                        <div class="mb-3">
+                            <h4 class="form-label">Product Translations</h4>
+                        </div>
+                            <div class="repeater-add">
+                                <div data-repeater-list="translations">
+                                    <div data-repeater-item="">
+                                        <div class="row mb-20">
+                                            <div class="col-md-3">
+                                                <label class="form-label" for="exampleInputEmail1">Language</label>
+                                                <input required name="language" type="text" class="form-control" aria-describedby="emailHelp"
+                                                       placeholder="Enter Language" value="{{old('language')}}">
+
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label class="form-label" for="exampleInputEmail1">Product Name</label>
+                                                <input required name="name" type="text" class="form-control" aria-describedby="emailHelp"
+                                                       placeholder="Enter Product Name" value="{{old('name')}}">
+
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label class="form-label" for="exampleFormControlTextarea1">Product Description</label>
+                                                <textarea id="summernote" name="description" class="form-control" id="exampleFormControlTextarea1"
+                                                          rows="2">{{old('description')}}</textarea>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="d-grid">
+                                                    <input class="btn btn-danger mt-30" data-repeater-delete="" type="button" value="Delete">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group clearfix mb-20">
+                                    <input  class="button" data-repeater-create="" type="button" value="Add Product Translation">
+                                </div>
+                            </div>
+
                         <div class="mb-3">
                             <label class="form-label d-block" for="exampleFormControlFile1">Product Image</label>
                             <input required name="image" type="file" class="form-control"  id="customFile" value="{{old('image')}}">

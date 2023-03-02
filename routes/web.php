@@ -3,6 +3,7 @@
 use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\ContactUs\ContactUsController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\LangController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\WebsiteProfile\WebsiteProfileController;
 use Illuminate\Support\Facades\Route;
@@ -86,3 +87,5 @@ Route::get('/contact', [ContactUsController::class, 'create'])->name('contact');
 Route::post('/contact', [ContactUsController::class, 'store'])->name('contact.store');
 //------------- End ContactUs -------------
 
+
+Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');

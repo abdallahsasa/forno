@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductMedia;
 use App\Models\ProductPrices;
+use App\Models\ProductTransaltion;
 use App\Models\Tag;
 use App\Models\UserActivity;
 use Illuminate\Http\Request;
@@ -61,6 +62,7 @@ class ProductController extends Controller
             'image.*' => 'image|mimes:jpg,jpeg,png',
             'category_id' => 'nullable|exists:categories,id',
             'prices' => 'nullable|array',
+            'translations' => 'nullable|array',
         ];
     }
 
@@ -74,6 +76,7 @@ class ProductController extends Controller
             'image.*' => 'image|mimes:jpg,jpeg,png',
             'category_id' => 'required|exists:categories,id',
             'prices' => 'nullable|array',
+            'translations' => 'nullable|array',
 
         ];
     }
@@ -146,6 +149,17 @@ class ProductController extends Controller
                         'type' => 'none',
                         'description' => 'none',
                         'price' => $price['price'],
+                    ]);
+                }
+            }
+            if ($request->has('translations')) {
+                $translations = $request->translations;
+                foreach ($translations as $translation) {
+                    ProductTransaltion::create([
+                        'product_id' => $object->id,
+                        'lang' => $translation['language'],
+                        'name' => $translation['name'],
+                        'description' => $translation['description'],
                     ]);
                 }
             }

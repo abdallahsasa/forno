@@ -77,10 +77,10 @@
                                         <div class="sb-price">
                                             @foreach($product->prices as $price)
                                                 @if($price->size=='Regular')
-                                                    {{number_format($price->price,2)}}
+                                                    {{number_format($price->price,3)}}
                                                     @break
                                                 @else
-                                                    {{number_format($price->price,2)}}                                                    @break
+                                                    {{number_format($price->price,3)}}                                                    @break
                                                 @endif
                                             @endforeach
                                             <sub>{{$product->currency}}</sub>

@@ -21,7 +21,7 @@ class Product extends Model
     }
     public function getNameAttribute($attribute)
     {
-        if(request()->has('lang') && request('lang') != "en")
+        if(request()->has('locale') && request('locale') != "en")
         {
             return $this->get_attribute_trans('name')->value ?? null;
         }
@@ -30,20 +30,20 @@ class Product extends Model
     public function get_name_trans($attribute,$lang = "ar")
     {
         return  $this->productTransaltion()
-            ->where('lang','=',$lang)->get('name');
+            ->where('locale','=',$lang)->get('name');
     }
     public function getDescriptionAttribute($attribute)
     {
-        if(request()->has('lang') && request('lang') != "en")
+        if(request()->has('locale') && request('locale') != "en")
         {
             return $this->get_attribute_trans('description')->value ?? null;
         }
         return $attribute;
     }
-    public function get_description_trans($attribute,$lang = "ar")
+    public function get_description_trans($attribute,$locale = "ar")
     {
         return  $this->productTransaltion()
-            ->where('lang','=',$lang)->get('description');
+            ->where('lang','=',$locale)->get('description');
     }
     public function media()
     {
