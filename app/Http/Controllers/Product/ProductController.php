@@ -8,7 +8,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductMedia;
 use App\Models\ProductPrices;
-use App\Models\ProductTransaltion;
+use App\Models\ProductTranslation;
 use App\Models\Tag;
 use App\Models\UserActivity;
 use Illuminate\Http\Request;
@@ -43,6 +43,7 @@ class ProductController extends Controller
         $this->edit_variation_view = 'dashboard.products.edit_variation';
         $this->index_route = 'dashboard.product.index';
         $this->create_route = 'product.create';
+        $this->edit_route = 'dashboard.product.edit';
         $this->success_message = 'Product Added successfully';
         $this->delete_message = 'Product deleted successfully';
         $this->error = 'Something went Wrong';
@@ -155,7 +156,7 @@ class ProductController extends Controller
             if ($request->has('translations')) {
                 $translations = $request->translations;
                 foreach ($translations as $translation) {
-                    ProductTransaltion::create([
+                    ProductTranslation::create([
                         'product_id' => $object->id,
                         'lang' => $translation['language'],
                         'name' => $translation['name'],
@@ -244,135 +245,55 @@ class ProductController extends Controller
         try {
             $object = $this->model_instance::find($id);
             $updated_instance = $object->update();
+            if ($request->has('image')) {
+                $image = $validated_data["image"];
+                $img_file_path = Storage::disk('public_images')->put('products', $image);
+                $image_name = $request->file('image')->getClientOriginalName();
+                $image_url = getMediaUrl($img_file_path);
+                $object->image_url = $image_url;
+                $object->image_name = $image_name;
+                $object->update();
+            }
+            if ($request->has('prices')) {
+                $prices = $request->prices;
+                foreach ($prices as $price) {
 
-            if ($request->has('variations') && !empty($request->variations)) {
-                foreach ($request->variations as $variation) {
-
-                    $additional_data = [
-                        'parent_id' => $object->id,
-                        'is_variant' => 'yes',
-                        'name' => $variation["variation_name"]
-                    ];
-
-
-                    $variant_data = array_merge($variation, $additional_data);
-
-
-                    $new_variation_object = $object->replicate();
-                    $new_variation_object->push();
-
-                    $new_variation_object->update($variant_data);
-
-
-                    if (isset($variation["attributes"]) && !empty($variation["attributes"])) {
-                        foreach ($variation["attributes"] as $key => $attribute) {
-
-                            ProductVariationAttribute::create([
-                                'product_id' => $new_variation_object->id,
-                                'attribute_id' => $key,
-                                'parent_id' => $object->id,
-                                'value' => isset($attribute) ? $attribute : 'any'
-                            ]);
-                        }
+                     $exproices=ProductPrices::where('size',$price['size'])
+                        ->where('product_id',$object->id)->first();
+                    if($exproices != null)
+                    {
+                        $exproices->size=$price['size'];
+                        $exproices->price=$price['price'];
+                        $exproices->update();
 
                     }
-
-
-                    if (isset($validated_data["variation_images"]) && !empty($validated_data["variation_images"])) {
-
-                        foreach ($validated_data["variation_images"] as $image) {
-                            $img_file_path = Storage::disk('public_images')->put('products', $image);
-                            $image_url = getMediaUrl($img_file_path);
-                            ProductMedia::create([
-                                'product_id' => $new_variation_object->id,
-                                'media_type' => 'image',
-                                'media_url' => $image_url
-                            ]);
-
-
-                        }
+                    else {
+                        ProductPrices::create([
+                            'product_id' => $object->id,
+                            'size' => $price['size'],
+                            'type' => 'none',
+                            'description' => 'none',
+                            'price' => $price['price'],
+                        ]);
                     }
                 }
             }
-
-            if ($request->has('images')) {
-
-
-                foreach ($validated_data["images"] as $image) {
-                    $img_file_path = Storage::disk('public_images')->put('products', $image);
-                    $image_url = getMediaUrl($img_file_path);
-                    ProductMedia::create([
+            if ($request->has('translations')) {
+                $translations = $request->translations;
+                foreach ($translations as $translation) {
+                    ProductTranslation::create([
                         'product_id' => $object->id,
-                        'media_type' => 'image',
-                        'media_url' => $image_url,
-                        'media_path' => $img_file_path,
+                        'lang' => $translation['language'],
+                        'name' => $translation['name'],
+                        'description' => $translation['description'],
                     ]);
-
-
                 }
             }
-
-            if ($request->has('removed_images_ids')) {
-                $images = ProductMedia::whereIn('id', $request->removed_images_ids)->get();
-                foreach ($images as $image) {
-                    Storage::disk('public_images')->delete($image->media_path);
-                    $image->delete();
-                }
-            }
-
-
-            if ($request->has('tags')) {
-                $tags = $request->tags;
-
-                $product_tags_ids = [];
-
-                foreach ($tags as $tag) {
-                    $tag_object = Tag::firstOrCreate([
-                        'product_id' => $object->id,
-                        'tag_value' => $tag
-                    ]);
-
-
-                    array_push($product_tags_ids, $tag_object->id);
-                }
-
-                Tag::whereNotIn('id', $product_tags_ids)->where('product_id', $object->id)->delete();
-
-
-            }
-
-
-            if ($request->has('categories')) {
-
-                $object->categories()->sync($request->categories);
-            }
-
-            if ($request->has('product_attributes')) {
-                $object->attributes()->detach();
-                foreach ($request->product_attributes as $id => $values) {
-                    $attribute = Attribute::findOrFail($id);
-                    $object->attributes()->attach($attribute->id, ['values' => json_encode($values, JSON_UNESCAPED_UNICODE)]);
-                }
-            }
-
-            if ($request->has('variant_attributes')) {
-                foreach ($request->variant_attributes as $key => $value) {
-                    ProductVariationAttribute::where(['parent_id' => $object->parent()->id, 'attribute_id' => $key, 'product_id' => $object->id])->update(['value' => $value]);
-                    $this->edit_view = 'admin.products.variation.edit';
-                }
-            }
-
-
-            if (!$request->has('stock_management')) {
-                $object->stockUnlimited()->update();
-            }
-
-
             if ($updated_instance) {
 
                 $log_message = trans('products.update_log') . '#' . $object->id;
                 UserActivity::logActivity($log_message);
-                return redirect()->route($this->edit_view, $object->id)->with('success', $this->update_success_message);
+                return redirect()->route($this->edit_route, $object->id)->with('success', $this->update_success_message);
             } else {
                 return redirect()->route($this->index_route)->with('error', $this->update_error_message);
             }

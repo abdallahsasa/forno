@@ -118,9 +118,10 @@
                                         <div class="row mb-20">
                                             <div class="col-md-3">
                                                 <label class="form-label" for="exampleInputEmail1">Language</label>
-                                                <input required name="language" type="text" class="form-control" aria-describedby="emailHelp"
-                                                       placeholder="Enter Language" value="{{old('language')}}">
-
+                                                <select required name="language" class="form-select form-select-lg " id="size" style="padding-top: 0.6rem;padding-bottom: 0.7rem;">
+                                                    <option value="" disabled >Language</option>
+                                                    <option value="ar" selected >Arabic</option>
+                                                </select>
                                             </div>
                                             <div class="col-md-3">
                                                 <label class="form-label" for="exampleInputEmail1">Product Name</label>

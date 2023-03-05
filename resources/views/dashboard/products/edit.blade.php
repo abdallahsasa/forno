@@ -27,7 +27,8 @@
             @endif
             <div class="card card-statistics mb-30">
                 <div class="card-body">
-                    <form action="{{route('dashboard.product.update',$product->id)}} " method="POST" enctype="multipart/form-data">
+                    <form action="{{route('dashboard.product.update',$product->id)}} " method="POST"
+                          enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
                         <div class="row">
@@ -86,7 +87,8 @@
                                         <div class="form-group mb-3">
                                             <div class="checkbox checbox-switch switch-success">
                                                 <label>
-                                                    <input type="checkbox" onchange="setval(this);" name="status" id="status-toggle" value="active" checked="">
+                                                    <input type="checkbox" onchange="setval(this);" name="status"
+                                                           id="status-toggle" value="active" checked="">
                                                     <span class="toggle-switch-inner"></span>
                                                     Checkbox Label
                                                 </label>
@@ -135,60 +137,165 @@
                                         <div class="repeater-add">
                                             <div data-repeater-list="prices">
                                                 <div data-repeater-item="">
-                                                    @foreach($product->prices as $prod)
-                                                        <div class="row mb-20">
-                                                            <div class="col-md-4">
-                                                                <label class="form-label"
-                                                                       for="inputAddress5">Size</label>
-                                                                <input required name="size" type="text"
-                                                                       class="form-control" id="size"
-                                                                       placeholder="Enter Product Size"
-                                                                       value="{{$prod->size}}">
-                                                            </div>
-                                                            <div class="col-md-4">
-                                                                <label class="form-label"
-                                                                       for="inputAddress5">Price</label>
-                                                                <input required name="price" step=".01" type="number"
-                                                                       class="form-control" id="price"
-                                                                       placeholder="Enter Product Price"
-                                                                       value="{{$prod->price}}">
-                                                            </div>
-                                                            <div class="col-md-2">
-                                                                <div class="d-grid">
-                                                                    <input class="btn btn-danger mt-30"
-                                                                           data-repeater-delete=""
-                                                                           type="button" value="Delete">
+{{--                                                    @if(isset($product->prices))
+                                                        @foreach($product->prices as $prod)
+                                                            <div class="row mb-20">
+                                                                <div class="col-md-4">
+                                                                    <label class="form-label"
+                                                                           for="inputAddress5">Size</label>
+                                                                    <input required name="size" type="text"
+                                                                           class="form-control" id="size"
+                                                                           placeholder="Enter Product Size"
+                                                                           value="{{$prod->size}}">
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <label class="form-label"
+                                                                           for="inputAddress5">Price</label>
+                                                                    <input required name="price" step=".01"
+                                                                           type="number"
+                                                                           class="form-control" id="price"
+                                                                           placeholder="Enter Product Price"
+                                                                           value="{{$prod->price}}">
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <div class="d-grid">
+                                                                        <input class="btn btn-danger mt-30"
+                                                                               data-repeater-delete=""
+                                                                               type="button" value="Delete">
+                                                                    </div>
                                                                 </div>
                                                             </div>
+                                                        @endforeach
+                                                    @endif--}}
+                                                    <div class="row mb-20">
+                                                        <div class="col-md-4">
+                                                            <label class="form-label"
+                                                                   for="inputAddress5">Size</label>
+                                                            <input required name="size" type="text"
+                                                                   class="form-control" id="size"
+                                                                   placeholder="Enter Product Size"
+                                                                   value="">
                                                         </div>
-                                                    @endforeach
+                                                        <div class="col-md-4">
+                                                            <label class="form-label"
+                                                                   for="inputAddress5">Price</label>
+                                                            <input required name="price" step=".01"
+                                                                   type="number"
+                                                                   class="form-control" id="price"
+                                                                   placeholder="Enter Product Price"
+                                                                   value="">
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <div class="d-grid">
+                                                                <input class="btn btn-danger mt-30"
+                                                                       data-repeater-delete=""
+                                                                       type="button" value="Delete">
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group clearfix mb-20">
                                                 <input class="button" data-repeater-create="" type="button"
-                                                       value="Add Product Price">
+                                                       value="Add Product New Price">
                                             </div>
                                         </div>
-
                                         <div class="mb-3">
-                                            <label class="form-label d-block" for="exampleFormControlFile1">Product
-                                                Image</label>
-                                            <input required name="image" type="file" class="form-control"
-                                                   id="customFile"
-                                                   value="{{$product->image_name}} {{old('image_name')}}">
-                                            @if($errors->has('image'))
-                                                <div class="alert alert-danger" role="alert">
-                                                    {{ $errors->first('image') }}
-                                                </div>
-                                            @endif
+                                            <h4 class="form-label">Product Translations</h4>
                                         </div>
+                                        <div class="repeater-add">
+                                            <div data-repeater-list="translations">
+                                                <div data-repeater-item="">
+                                                    {{--                                                    @if(isset($product->translations))
+                                                                                                        @foreach($product->translations as $translation)
+                                                                                                        <div class="row mb-20">
+                                                                                                            <div class="col-md-3">
+                                                                                                                <label class="form-label" for="exampleInputEmail1">Language</label>
+                                                                                                                <input required name="language" type="text" class="form-control" aria-describedby="emailHelp"
+                                                                                                                       placeholder="Enter Language" value="{{$translation->lang}}">
 
+                                                                                                            </div>
+                                                                                                            <div class="col-md-3">
+                                                                                                                <label class="form-label" for="exampleInputEmail1">Product Name</label>
+                                                                                                                <input required name="name" type="text" class="form-control" aria-describedby="emailHelp"
+                                                                                                                       placeholder="Enter Product Name" value="{{$translation->name}}">
+
+                                                                                                            </div>
+                                                                                                            <div class="col-md-3">
+                                                                                                                <label class="form-label" for="exampleFormControlTextarea1">Product Description</label>
+                                                                                                                <textarea id="summernote" name="description" class="form-control" id="exampleFormControlTextarea1"
+                                                                                                                          rows="2">{{$translation->description}}</textarea>
+                                                                                                            </div>
+                                                                                                            <div class="col-md-2">
+                                                                                                                <div class="d-grid">
+                                                                                                                    <input class="btn btn-danger mt-30" data-repeater-delete="" type="button" value="Delete">
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        @endforeach
+                                                                                                        @endif--}}
+                                                    <div class="row mb-20">
+                                                        <div class="col-md-3">
+                                                            <label class="form-label"
+                                                                   for="exampleInputEmail1">Language</label>
+                                                            <select required name="language" class="form-select form-select-lg " id="size" style="padding-top: 0.6rem;padding-bottom: 0.7rem;">
+                                                                <option value="" disabled >Language</option>
+                                                                <option value="ar" selected>Arabic</option>
+                                                            </select>
+
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <label class="form-label" for="exampleInputEmail1">Product
+                                                                Name</label>
+                                                            <input required name="name" type="text" class="form-control"
+                                                                   aria-describedby="emailHelp"
+                                                                   placeholder="Enter Product Name" value="">
+
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <label class="form-label" for="exampleFormControlTextarea1">Product
+                                                                Description</label>
+                                                            <textarea id="summernote" name="description"
+                                                                      class="form-control"
+                                                                      id="exampleFormControlTextarea1"
+                                                                      rows="2"></textarea>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <div class="d-grid">
+                                                                <input class="btn btn-danger mt-30"
+                                                                       data-repeater-delete="" type="button"
+                                                                       value="Delete">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="form-group clearfix mb-20">
+                                                <input class="button" data-repeater-create="" type="button"
+                                                       value="Add Product New Translation">
+                                            </div>
+                                            <div class="mb-3">
+                                                <img width="25%" src="{{$product->image_url}}"/>
+                                                <label class="form-label d-block" for="exampleFormControlFile1">Product
+                                                    Image</label>
+                                                <input name="image" type="file" class="form-control"
+                                                       id="customFile"
+                                                       value="{{$product->image_url}}">
+
+                                                @if($errors->has('image'))
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {{ $errors->first('image') }}
+                                                    </div>
+                                                @endif
+                                            </div>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
 
                     </form>
                 </div>
@@ -201,8 +308,7 @@
 
 
     <script>
-        function setval(sel)
-        {
+        function setval(sel) {
 
         }
     </script>

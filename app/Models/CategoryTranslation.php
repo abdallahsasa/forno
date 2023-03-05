@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductTransaltion extends Model
+class CategoryTranslation extends Model
 {
     use HasFactory;
+    protected $fillable = array('name','description','lang','category_id');
 }

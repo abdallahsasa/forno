@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Category;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\CategoryTranslation;
+use App\Models\ProductTranslation;
 use App\Models\UserActivity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -138,7 +140,17 @@ class CategoryController extends Controller
                 $object->image_name=$image_name;
                 $object->update();
             }
-
+            if ($request->has('translations')) {
+                $translations = $request->translations;
+                foreach ($translations as $translation) {
+                    CategoryTranslation::create([
+                        'category_id' => $object->id,
+                        'lang' => $translation['language'],
+                        'name' => $translation['name'],
+                        'description' => $translation['description'],
+                    ]);
+                }
+            }
             $log_message = trans('categories.create_log') . '#' . $object->id;
             UserActivity::logActivity($log_message);
 

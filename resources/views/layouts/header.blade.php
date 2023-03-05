@@ -12,7 +12,7 @@
                 <nav id="sb-dynamic-menu" class="sb-menu-transition">
                     <ul class="sb-navigation">
                         <li>
-                            <a href="{{url('/')}}">Home</a>
+                            <a href="{{url('/')}}">{{ __('menu.home') }}</a>
                         </li>
                         <li>
                             <a href="{{url('/menu')}}">Menu</a>

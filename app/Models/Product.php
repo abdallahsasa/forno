@@ -15,35 +15,37 @@ class Product extends Model
     {
         return $this->belongsTo('App\Models\Category');
     }
-    public function productTransaltion()
+    public function translations()
     {
-        return $this->hasMany('App\Models\ProductTransaltion');
+        return $this->hasMany('App\Models\ProductTranslation');
     }
     public function getNameAttribute($attribute)
     {
-        if(request()->has('locale') && request('locale') != "en")
+        if(session()->has('locale') && session('locale') != "en")
         {
-            return $this->get_attribute_trans('name')->value ?? null;
+            return $this->get_name_trans(session('locale'))->name ?? $attribute;
         }
-        return $attribute;
+        return session('locale');
     }
-    public function get_name_trans($attribute,$lang = "ar")
+    public function get_name_trans($lang)
     {
-        return  $this->productTransaltion()
-            ->where('locale','=',$lang)->get('name');
+        return $this->translations()
+            ->where('lang','=',$lang)
+            ->first();
     }
     public function getDescriptionAttribute($attribute)
     {
-        if(request()->has('locale') && request('locale') != "en")
+        if(session()->has('locale') && session('locale') != "en")
         {
-            return $this->get_attribute_trans('description')->value ?? null;
+            return $this->get_description_trans(session('locale'))->description ?? $attribute;
         }
         return $attribute;
     }
-    public function get_description_trans($attribute,$locale = "ar")
+    public function get_description_trans($lang)
     {
-        return  $this->productTransaltion()
-            ->where('lang','=',$locale)->get('description');
+        return  $this->translations()
+            ->where('lang','=',$lang)
+            ->first('description');
     }
     public function media()
     {

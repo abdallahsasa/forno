@@ -51,6 +51,51 @@
                                 </div>
                             @endif
                         </div>
+                        <div class="repeater-add">
+                            <div data-repeater-list="translations">
+                                <div data-repeater-item="">
+                                    <div class="row mb-20">
+                                        <div class="col-md-3">
+                                            <label class="form-label" for="exampleInputEmail1">Language</label>
+                                            <select required name="language" class="form-select form-select-lg " id="size" style="padding-top: 0.6rem;padding-bottom: 0.7rem;">
+                                                <option value="" disabled >Language</option>
+                                                <option value="ar" selected >Arabic</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-label" for="exampleInputEmail1">Category
+                                                Name</label>
+                                            <input required name="name" type="text" class="form-control"
+                                                   aria-describedby="emailHelp"
+                                                   placeholder="Enter Category Name" value="">
+
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-label" for="exampleFormControlTextarea1">Category
+                                                Description</label>
+                                            <textarea id="summernote" name="description"
+                                                      class="form-control"
+                                                      id="exampleFormControlTextarea1"
+                                                      rows="2"></textarea>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="d-grid">
+                                                <input class="btn btn-danger mt-30"
+                                                       data-repeater-delete="" type="button"
+                                                       value="Delete">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group clearfix mb-20">
+                                <input class="button" data-repeater-create="" type="button"
+                                       value="Add Category New Translation">
+                            </div>
+
+                        </div>
                         <div class="mb-3">
                             <label class="form-label d-block" for="exampleFormControlFile1">Category Image</label>
                             <img width="15%" src="{{$category->image_url}}" class="form-label d-block w-10" for="exampleFormControlFile1" alt="">
