@@ -25,7 +25,7 @@ class Product extends Model
         {
             return $this->get_name_trans(session('locale'))->name ?? $attribute;
         }
-        return session('locale');
+        return $attribute;
     }
     public function get_name_trans($lang)
     {
