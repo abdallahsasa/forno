@@ -5263,9 +5263,6 @@ illustration 9
 :lang(ar) .sb-cate-title{
     direction: rtl!important;
 }
-:lang(ar) {
+:lang(ar) :not(.sb-next-btn,.sb-prev-btn){
     font-family: 'Hacen Tunisia', sans-serif!important;
-}
-.sb-next-btn ,.sb-prev-btn{
-    font-family: 'Rubik', sans-serif!important;
 }
