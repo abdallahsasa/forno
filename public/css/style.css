@@ -88,11 +88,19 @@ font
 ***************************/
 @import url("https://fonts.googleapis.com/css2?family=Monoton&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-/***************************
+@font-face {
+    font-family: 'Hacen Tunisia';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Hacen Tunisia'), url('https://moreandmore-kw.com/fonts/webfonts/Hacen-Tunisia.woff') format('woff');
+}
 
-preloader
 
-***************************/
+      /***************************
+
+      preloader
+
+      ***************************/
 .sb-preloader {
     width: 100%;
     height: 100vh;
@@ -5211,4 +5219,53 @@ illustration 9
 }
 .view-btn:hover{
     opacity: 1;
+}
+.sb-navigation li a {
+    text-transform: capitalize;
+}
+:lang(ar).sb-navigation{
+    flex-direction: row-reverse!important;
+}
+:lang(ar).row{
+    flex-direction: row-reverse!important;
+}
+:lang(ar).sb-group-title{
+    flex-direction: row-reverse!important;
+}
+:lang(ar).sb-group-title .sb-right{
+    flex-direction: row-reverse!important;
+}
+:lang(ar).sb-left{
+  text-align: right!important;
+}
+:lang(ar).sb-right{
+  text-align: left!important;
+}
+:lang(ar).sb-menu-item .sb-card-tp{
+    padding-right: 15px!important;
+    padding-left: 0px!important;
+    flex-direction: row-reverse!important;
+}
+
+:lang(ar).sb-menu-item .sb-card-tp .sb-card-title{
+    text-align: right!important;
+}
+:lang(ar).sb-product-description .sb-price-frame{
+    flex-direction: row-reverse;
+    padding-right: 30px!important;
+    padding-left: 0px!important;
+}
+:lang(ar).sb-text{
+    text-align: right!important;
+}
+:lang(ar).sb-stars{
+    flex-direction: row-reverse!important;
+}
+:lang(ar) .sb-cate-title{
+    direction: rtl!important;
+}
+
+:lang(ar) {
+    font-family: 'Hacen Tunisia', sans-serif!important;
+
 }

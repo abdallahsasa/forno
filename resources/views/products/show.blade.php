@@ -8,9 +8,9 @@
                     <!-- main title -->
                     <div class="sb-main-title-frame">
                         <div class="sb-main-title">
-                            <h1 class="sb-h2">More & More Juices</h1>
+                            <h1 class="sb-h2">{{ __('product.banner-title') }}</h1>
                             <ul class="sb-breadcrumbs">
-                                <li><a class="text-uppercase" href="/">Home</a></li>
+                                <li><a class="text-uppercase" href="/">{{ __('menu.home') }}</a></li>
 
                                 <li>
                                     <div class="text-uppercase"> {{$product->category->name}} </div>
@@ -126,7 +126,7 @@
         <div class="container">
             <div class="sb-group-title sb-mb-30">
                 <div class="sb-left sb-mb-30">
-                    <h2 class="sb-cate-title sb-mb-30">Need a new flavor adventure? Try these!</h2>
+                    <h2 class="sb-cate-title sb-mb-30">{{ __('product.related-products') }}</h2>
                 </div>
                 @if(count($relatedProducts)>4)
                     <div class="sb-right sb-mb-30">

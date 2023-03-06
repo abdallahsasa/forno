@@ -4,8 +4,8 @@
         <div class="container">
             <div class="sb-group-title sb-mb-30">
                 <div class="sb-left sb-mb-30">
-                    <h2 class="sb-mb-30">What do you <span>like today?</span></h2>
-                    <p class="sb-text">Discover Our Categories</p>
+                    <h2 class="sb-mb-30">{{ __('home.category-headingp1') }} <span>{{ __('home.category-headingp2') }}</span></h2>
+                    <p class="sb-text">{{ __('home.category-subheading') }}</p>
                 </div>
                 <div class="sb-right sb-mb-30">
                     <!-- button -->
@@ -13,7 +13,7 @@
                 <span class="sb-icon">
                   <img src="img/ui/icons/menu.svg" alt="icon">
                 </span>
-                        <span>View Full Menu</span>
+                        <span>{{ __('home.view-full-menu') }}</span>
                     </a>
                     <!-- button end -->
                 </div>
@@ -44,7 +44,7 @@
                 <div class="container">
                     <div class="sb-group-title sb-mb-30">
                         <div class="sb-left sb-mb-30">
-                            <h2 class="sb-mb-30">Most <span>popular</span></h2>
+                            <h2 class="sb-mb-30">{{ __('home.most') }} <span>{{ __('home.popular') }}</span></h2>
                         </div>
                         <div class="sb-right sb-mb-30">
                             <!-- slider navigation -->
@@ -58,7 +58,7 @@
                 <span class="sb-icon">
                   <img src="img/ui/icons/menu.svg" alt="icon">
                 </span>
-                                <span>Full menu</span>
+                                <span>{{ __('home.full-menu') }}</span>
                             </a>
                             <!-- button end -->
                         </div>

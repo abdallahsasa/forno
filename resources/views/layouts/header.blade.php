@@ -15,19 +15,19 @@
                             <a href="{{url('/')}}">{{ __('menu.home') }}</a>
                         </li>
                         <li>
-                            <a href="{{url('/menu')}}">Menu</a>
+                            <a href="{{url('/menu')}}">{{ __('menu.menu') }}</a>
                         </li>
                         <li>
-                            <a href="{{url('/contact')}}">Contact</a>
+                            <a href="{{url('/contact')}}">{{ __('menu.contact') }}</a>
                         </li>
                         <li class="sb-has-children">
-                            <a href> Language </a>
+                            <a href> {{ __('menu.language') }} </a>
                             <ul>
                                 <li value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>
-                                    <a href="{{ route('changeLang').'?lang=en' }}"> English </a>
+                                    <a href="{{ route('changeLang').'?lang=en' }}"> {{ __('menu.english') }} </a>
                                 </li>
                                 <li value="ar" {{ session()->get('locale') == 'ar' ? 'selected' : '' }}>
-                                    <a href="{{ route('changeLang').'?lang=ar' }}"> Arabic </a>
+                                    <a href="{{ route('changeLang').'?lang=ar' }}"> {{ __('menu.arabic') }} </a>
                                 </li>
                             </ul>
                         </li>
