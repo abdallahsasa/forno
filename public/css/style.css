@@ -5246,7 +5246,6 @@ illustration 9
     padding-left: 0px!important;
     flex-direction: row-reverse!important;
 }
-
 :lang(ar).sb-menu-item .sb-card-tp .sb-card-title{
     text-align: right!important;
 }
@@ -5264,8 +5263,9 @@ illustration 9
 :lang(ar) .sb-cate-title{
     direction: rtl!important;
 }
-
 :lang(ar) {
     font-family: 'Hacen Tunisia', sans-serif!important;
-
+}
+.sb-next-btn ,.sb-prev-btn{
+    font-family: 'Rubik', sans-serif!important;
 }
