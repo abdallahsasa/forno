@@ -109,7 +109,7 @@
                                     <ul class="sb-list">
                                         @foreach($product->prices as $prod)
                                             <li>
-                                                <b class="text-capitalize"><i class="fa-solid fa-cup-togo"></i>{{ __('product.'.$prod->size) }}</b><span>{{number_format($prod->price,3)}}   {{$product->currency}}</span>
+                                                <b class="text-capitalize"><i class="fa-solid fa-cup-togo"></i>{{ __('product.'.str_replace(' ', '', $prod->size)) }}</b><span>{{number_format($prod->price,3)}}   {{$product->currency}}</span>
                                             </li>
                                         @endforeach
                                     </ul>
