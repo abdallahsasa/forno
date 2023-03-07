@@ -237,7 +237,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-      return $request;
+      //return $request;
         //has_access('product_update');
 
         $validated_data = $request->validate($this->UpdateValidationRules());
@@ -288,7 +288,7 @@ class ProductController extends Controller
                 return redirect()->route($this->index_route)->with('error', $this->update_error_message);
             }
         } catch (\Exception $ex) {
-            dd($ex->getMessage());
+            //dd($ex->getMessage());
             Log::error($ex->getMessage());
             return redirect()->route($this->index_route)->with('error', $this->error_message);
         }
