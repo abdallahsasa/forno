@@ -424,7 +424,7 @@ list
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 14px;
+    font-size: 18px;
     padding: 15px 0;
     border-bottom: solid 1px #F2F3F5;
 }
@@ -445,7 +445,7 @@ list
 }
 
 .sb-list li span {
-    font-size: 12px;
+    font-size: 18px;
     color: #6F6F87;
 }
 
@@ -2446,7 +2446,7 @@ promo
     }
 
     .sb-promo-frame {
-        padding: 30px 0;
+        padding: 0 0;
     }
 }
 
@@ -4671,7 +4671,8 @@ illustration 4
 
 @media (max-width: 580px) {
     .sb-illustration-4 {
-        margin-top: 30px;
+        margin-top: 0;
+        padding-bottom: 45%;
     }
 }
 
@@ -5263,6 +5264,10 @@ illustration 9
 :lang(ar) .sb-cate-title{
     direction: rtl!important;
 }
-:lang(ar) :not(.sb-next-btn):not(.sb-prev-btn){
+:lang(ar) :not(i){
     font-family: 'Hacen Tunisia', sans-serif!important;
 }
+:lang(ar)  .sb-list li{
+    flex-direction: row-reverse;
+}
+
