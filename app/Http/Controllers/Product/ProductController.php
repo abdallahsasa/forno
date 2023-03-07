@@ -258,16 +258,6 @@ class ProductController extends Controller
                 $prices = $request->prices;
                 foreach ($prices as $price) {
 
-                     $exproices=ProductPrices::where('size',$price['size'])
-                        ->where('product_id',$object->id)->first();
-                    if($exproices != null)
-                    {
-                        $exproices->size=$price['size'];
-                        $exproices->price=$price['price'];
-                        $exproices->update();
-
-                    }
-                    else {
                         ProductPrices::create([
                             'product_id' => $object->id,
                             'size' => $price['size'],
@@ -275,7 +265,7 @@ class ProductController extends Controller
                             'description' => 'none',
                             'price' => $price['price'],
                         ]);
-                    }
+
                 }
             }
             if ($request->has('translations')) {
