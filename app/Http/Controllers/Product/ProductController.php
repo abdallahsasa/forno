@@ -254,18 +254,18 @@ class ProductController extends Controller
                 $object->image_name = $image_name;
                 $object->update();
             }
-            if ($request->has('prices')) {
+            if ($request->has('prices') ) {
                 $prices = $request->prices;
                 foreach ($prices as $price) {
-
-                        ProductPrices::create([
-                            'product_id' => $object->id,
-                            'size' => $price['size'],
-                            'type' => 'none',
-                            'description' => 'none',
-                            'price' => $price['price'],
-                        ]);
-
+                       if($price['size']!=null) {
+                           ProductPrices::create([
+                               'product_id' => $object->id,
+                               'size' => $price['size'],
+                               'type' => 'none',
+                               'description' => 'none',
+                               'price' => $price['price'],
+                           ]);
+                       }
                 }
             }
             if ($request->has('translations')) {
