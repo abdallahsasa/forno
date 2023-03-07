@@ -70,7 +70,7 @@ class ProductController extends Controller
     private function UpdateValidationRules()
     {
         return [
-            'sku' => 'nullable|string|min:3|max:10',
+            'sku' => 'nullable|string|min:3|max:30',
             'name' => 'required|string|min:3|max:200',
             'description' => 'required|string|min:3|max:300',
             'image' => 'image',
