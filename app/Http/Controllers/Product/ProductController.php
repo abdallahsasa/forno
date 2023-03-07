@@ -237,7 +237,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+      return $request;
         //has_access('product_update');
 
         $validated_data = $request->validate($this->UpdateValidationRules());
