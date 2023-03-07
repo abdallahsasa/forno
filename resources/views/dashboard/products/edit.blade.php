@@ -171,7 +171,7 @@
                                                         <div class="col-md-4">
                                                             <label class="form-label"
                                                                    for="inputAddress5">Size</label>
-                                                            <input required name="size" type="text"
+                                                            <input  name="size" type="text"
                                                                    class="form-control" id="size"
                                                                    placeholder="Enter Product Size"
                                                                    value="">
@@ -179,7 +179,7 @@
                                                         <div class="col-md-4">
                                                             <label class="form-label"
                                                                    for="inputAddress5">Price</label>
-                                                            <input required name="price" step=".01"
+                                                            <input  name="price" step=".01"
                                                                    type="number"
                                                                    class="form-control" id="price"
                                                                    placeholder="Enter Product Price"
