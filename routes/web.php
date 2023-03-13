@@ -89,3 +89,4 @@ Route::post('/contact', [ContactUsController::class, 'store'])->name('contact.st
 
 
 Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
+Route::any('{query}', function() { return redirect('/'); })->where('query', '.*');
