@@ -10,7 +10,7 @@ return [
     'arabic' => 'arabic',
     'talabat' => 'Talabat',
     'deliveroo' => 'Deliveroo',
-    'Forno-Bakery' => 'Forno Bakery',
+    'more-and-more' => 'More And More Juice',
     'delivered-to-your-door' => 'Delivered to your door',
     'delivers-to-you' => 'Delivers to You',
     'order-now' => 'Order Now',
