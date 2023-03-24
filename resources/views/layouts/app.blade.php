@@ -8,7 +8,7 @@
     <!-- color of address bar in mobile browser -->
     <meta name="theme-color" content="#F5C332">
     <!-- favicon  -->
-    <link rel="shortcut icon" href="{{asset('img/ui/white-logo.png')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('img/ui/logo.png')}}" type="image/x-icon">
     <!-- font awesome css -->
     <link rel="stylesheet" href="{{asset('css/plugins/font-awesome.min.css')}}">
     <!-- bootstrap css -->
@@ -24,7 +24,7 @@
     <!-- starbelly css -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <!-- page title -->
-    <title>More & More</title>
+    <title>Forno</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -69,7 +69,7 @@
                             <div class="sb-promo-content">
                                 <div class="sb-text-frame">
                                     <h3 class="sb-mb-10">{{ __('menu.talabat') }}</h3>
-                                    <h3 class="sb-mb-15">{{ __('menu.more-and-more') }} </h3>
+                                    <h3 class="sb-mb-15">{{ __('menu.Forno-Bakery') }} </h3>
                                     <p class="sb-text sb-text-sm sb-mb-15">{{ __('menu.delivers-to-you') }}</p>
                                     <!-- button -->
                                     <a href="https://www.talabat.com/kuwait/more-and-more-juices" class="sb-btn sb-ppc"
@@ -97,7 +97,7 @@
                             <div class="sb-promo-content">
                                 <div class="sb-text-frame">
                                     <h3 class="sb-mb-10">{{ __('menu.deliveroo') }}</h3>
-                                    <h3 class="sb-mb-15">{{ __('menu.more-and-more') }} </h3>
+                                    <h3 class="sb-mb-15">{{ __('menu.Forno-Bakery') }} </h3>
                                     <p class="sb-text sb-text-sm sb-mb-15">{{ __('menu.delivered-to-your-door') }}</p>
                                     <!-- button -->
                                     <a href="https://deliveroo.com.kw/en/brands/more-and-more-juice" class="sb-btn sb-ppc"

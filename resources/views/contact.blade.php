@@ -9,7 +9,7 @@
                     <div class="sb-main-title-frame">
                         <div class="sb-main-title">
                             <span class="sb-suptitle sb-mb-30">Contact</span>
-                            <h1 class="sb-mb-30">Get in <span>Touch with More & More</span></h1>
+                            <h1 class="sb-mb-30">Get in <span>Touch with Forno</span></h1>
                             <p class="sb-text sb-text-lg sb-mb-30">We will respond within 24 hours.</p>
                             <ul class="sb-breadcrumbs">
                                 <li><a href="home-1.html">Home</a></li>
