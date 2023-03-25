@@ -1,10 +1,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="keywords" content="More & More Dashboard" />
-    <meta name="description" content="More & More Dashboard" />
+    <meta name="keywords" content="Forno Bakery Dashboard" />
+    <meta name="description" content="Forno Bakery Dashboard" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>More & More Dashboard</title>
+    <title>Forno Bakery Dashboard</title>
 
     <!-- Favicon -->
 {{--    <link rel="shortcut icon" href="{{asset('img/ui/logo.png')}}" />--}}

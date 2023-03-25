@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'category-headingp1' => 'شو حابب تشرب',
+    'category-headingp1' => 'شو حابب تاكل',
     'category-headingp2' => 'اليوم؟',
     'category-subheading' => 'استكشف منتجاتنا',
     'most' => 'الأكثر',

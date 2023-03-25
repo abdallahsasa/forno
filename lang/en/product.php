@@ -2,7 +2,7 @@
 
 return [
 
-    'banner-title' => 'More & More Juices',
+    'banner-title' => 'Forno Bakery',
     'related-products' => 'Need a new flavor adventure? Try these!',
     'Regular' => 'Regular',
     'Large' => 'Large',

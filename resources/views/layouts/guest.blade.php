@@ -5,12 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>More&More </title>
+        <title>Forno Bakery</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
         <!-- favicon  -->
-        <link rel="shortcut icon" href="{{asset('img/ui/white-logo.png')}}" type="image/x-icon">
+        <link rel="shortcut icon" href="{{asset('img/ui/logo.png')}}" type="image/x-icon">
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
