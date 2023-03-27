@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-
     private $index_view;
     private $create_view;
     private $edit_view;
@@ -58,8 +57,8 @@ class ProductController extends Controller
         return [
             'sku' => 'nullable|string|min:3|max:30',
             'name' => 'required|string|min:3|max:200',
-            'description' => 'required|string|min:3|max:1000',
-            'image' => 'required|image',
+            'description' => 'string|min:3|max:1000',
+            'image' => 'image',
             'image.*' => 'image|mimes:jpg,jpeg,png',
             'category_id' => 'nullable|exists:categories,id',
             'prices' => 'nullable|array',
@@ -78,7 +77,6 @@ class ProductController extends Controller
             'category_id' => 'required|exists:categories,id',
             'prices' => 'nullable|array',
             'translations' => 'nullable|array',
-
         ];
     }
 
