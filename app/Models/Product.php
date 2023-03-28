@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
     protected $table = 'products';
-    protected $fillable = array('name','description','price','active','image');
+    protected $fillable = array('name','description','price','active','image','sku','category_id');
 
     public function category()
     {
