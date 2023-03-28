@@ -120,6 +120,23 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/config" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nikic/php-parser" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />
+      <excludeFolder url="file://$MODULE_DIR$/public/storage" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/framework/cache/data/0e" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/framework/cache/data/01" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/framework/cache/data/4d" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/framework/cache/data/5f" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/framework/cache/data/05" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/framework/cache/data/06" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/framework/cache/data/33" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/framework/cache/data/45" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/framework/cache/data/64" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/framework/cache/data/68" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/framework/cache/data/a2" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/framework/cache/data/b9" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/framework/cache/data/e7" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/framework/cache/data/f7" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/framework/cache/data/fa" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
