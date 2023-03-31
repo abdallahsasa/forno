@@ -26,7 +26,7 @@ class CategoryController extends Controller
         $this->success_message = 'Category Has Been Added Successfully';
         $this->update_success_message = 'admin.update_created_successfully';
         $this->error_message = "Category Couldn't Been Added" ;
-        $this->update_error_message = trans('admin.fail_while_update');
+        $this->update_error_message = 'admin.fail_while_update';
         $this->model_instance = Category::class;
     }
     private function StoreValidationRules()
