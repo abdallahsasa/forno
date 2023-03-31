@@ -158,7 +158,7 @@ class CategoryController extends Controller
         } catch (\Exception $ex) {
 
             Log::error($ex->getMessage());
-            return redirect()->route($this->edit_route)->with('error', $this->error_message);
+            return redirect()->route($this->edit_route, $object->id)->with('error', $this->error_message);
         }
     }
 
