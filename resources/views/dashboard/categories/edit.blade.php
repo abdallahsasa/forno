@@ -57,7 +57,7 @@
                                     <div class="row mb-20">
                                         <div class="col-md-3">
                                             <label class="form-label" for="exampleInputEmail1">Language</label>
-                                            <select required name="language" class="form-select form-select-lg " id="size" style="padding-top: 0.6rem;padding-bottom: 0.7rem;">
+                                            <select  name="language" class="form-select form-select-lg " id="size" style="padding-top: 0.6rem;padding-bottom: 0.7rem;">
                                                 <option value="" disabled >Language</option>
                                                 <option value="ar" selected >Arabic</option>
                                             </select>
@@ -66,7 +66,7 @@
                                         <div class="col-md-3">
                                             <label class="form-label" for="exampleInputEmail1">Category
                                                 Name</label>
-                                            <input required name="name" type="text" class="form-control"
+                                            <input  name="name" type="text" class="form-control"
                                                    aria-describedby="emailHelp"
                                                    placeholder="Enter Category Name" value="">
 
