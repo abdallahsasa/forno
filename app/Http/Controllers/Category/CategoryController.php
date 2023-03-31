@@ -85,11 +85,11 @@ class CategoryController extends Controller
             $log_message = trans('categories.create_log') . '#' . $object->id;
             UserActivity::logActivity($log_message);
 
-            return redirect()->route($this->edit_route, $object->id)->with('success', $this->success_message);
+            return redirect()->route($this->create_route, $object->id)->with('success', $this->success_message);
         } catch (\Exception $ex) {
 
             Log::error($ex->getMessage());
-            return redirect()->route($this->edit_route)->with('error', $this->error_message);
+            return redirect()->route($this->create_route)->with('error', $this->error_message);
         }
     }
 
@@ -154,11 +154,11 @@ class CategoryController extends Controller
             $log_message = trans('categories.create_log') . '#' . $object->id;
             UserActivity::logActivity($log_message);
 
-            return redirect()->route($this->create_route, $object->id)->with('success', $this->success_message);
+            return redirect()->route($this->edit_route, $object->id)->with('success', $this->success_message);
         } catch (\Exception $ex) {
 
             Log::error($ex->getMessage());
-            return redirect()->route($this->create_route)->with('error', $this->error_message);
+            return redirect()->route($this->edit_route)->with('error', $this->error_message);
         }
     }
 
