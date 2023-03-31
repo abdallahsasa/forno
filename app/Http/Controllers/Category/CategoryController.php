@@ -24,7 +24,7 @@ class CategoryController extends Controller
         $this->create_route = 'dashboard.category.create';
         $this->edit_route = 'dashboard.category.edit';
         $this->success_message = 'Category Has Been Added Successfully';
-        $this->update_success_message = trans('admin.update_created_successfully');
+        $this->update_success_message = 'admin.update_created_successfully';
         $this->error_message = "Category Couldn't Been Added" ;
         $this->update_error_message = trans('admin.fail_while_update');
         $this->model_instance = Category::class;
